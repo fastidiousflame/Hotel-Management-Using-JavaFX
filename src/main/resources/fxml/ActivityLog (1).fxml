@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<!--
+  ActivityLog.fxml — Real-time activity log with export + clear
+  Controller: ui.ActivityLogController
+-->
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="ui.ActivityLogController"
+      styleClass="card"
+      VBox.vgrow="ALWAYS">
+    <padding><Insets top="18" right="18" bottom="18" left="18"/></padding>
+
+    <Label text="📄  Activity Log" styleClass="card-title"/>
+    <Separator styleClass="gold-sep"/>
+
+    <HBox spacing="12">
+        <padding><Insets top="8" bottom="8"/></padding>
+        <Button fx:id="btnExport" text="💾  Export Log to File"
+                onAction="#onExportLog" styleClass="gold-btn"/>
+        <Button fx:id="btnClear"  text="🗑  Clear Log"
+                onAction="#onClearLog"  styleClass="ghost-btn"/>
+    </HBox>
+
+    <ListView fx:id="logView" VBox.vgrow="ALWAYS"
+              style="-fx-background-color:#FFFFFF; -fx-border-color:#D4B8E0;
+                     -fx-font-family:'Courier New'; -fx-font-size:12;"/>
+
+</VBox>

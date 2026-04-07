@@ -1,0 +1,312 @@
+/* ══════════════════════════════════════════════════════
+   hotel.css — Royal Meridian Hotel Management System
+   Theme: Cream + Rose Gold + Purple Glass Cards
+   ══════════════════════════════════════════════════════ */
+
+.root {
+    -fx-background-color: #F5F0F8;
+    -fx-font-family: "Georgia", serif;
+}
+
+/* ── Card (white panels) ── */
+.card {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 12;
+    -fx-border-color: #E0D0EC;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-padding: 20;
+}
+
+/* ── Glass Stat Card ── */
+.stat-card {
+    -fx-background-color: rgba(80, 40, 120, 0.08);
+    -fx-background-radius: 14;
+    -fx-border-radius: 14;
+    -fx-border-width: 1.5;
+    -fx-padding: 20 22 18 22;
+}
+
+.stat-value {
+    -fx-font-family: "Georgia";
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+}
+
+.stat-label {
+    -fx-font-family: "Segoe UI";
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-letter-spacing: 2;
+}
+
+/* ── Card Title ── */
+.card-title {
+    -fx-font-family: "Georgia";
+    -fx-font-size: 15px;
+    -fx-text-fill: #7B3F8C;
+    -fx-font-weight: bold;
+}
+
+.section-label {
+    -fx-font-family: "Georgia";
+    -fx-font-size: 14px;
+    -fx-text-fill: #7B3F8C;
+    -fx-font-weight: bold;
+}
+
+.gold-sep {
+    -fx-background-color: #D4A0BC;
+}
+
+/* ── Form ── */
+.form-label {
+    -fx-font-family: "Segoe UI";
+    -fx-text-fill: #7B3F8C;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-min-width: 110;
+}
+
+.form-field {
+    -fx-background-color: #FDFAFF;
+    -fx-text-fill: #2A1040;
+    -fx-prompt-text-fill: #BBA8CC;
+    -fx-border-color: #D4B8E0;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 9 14;
+    -fx-font-family: "Segoe UI";
+    -fx-font-size: 13px;
+    -fx-max-width: Infinity;
+}
+
+.form-field:focused {
+    -fx-border-color: #C07090;
+    -fx-border-width: 1.5;
+}
+
+.form-combo {
+    -fx-background-color: #FDFAFF;
+    -fx-border-color: #D4B8E0;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 5 10;
+    -fx-font-family: "Segoe UI";
+    -fx-font-size: 13px;
+    -fx-text-fill: #2A1040;
+}
+
+.combo-box .list-cell {
+    -fx-background-color: #FDFAFF;
+    -fx-text-fill: #2A1040;
+}
+
+.combo-box-popup .list-view {
+    -fx-background-color: #FDFAFF;
+    -fx-border-color: #D4B8E0;
+}
+
+.combo-box-popup .list-cell {
+    -fx-background-color: #FDFAFF;
+    -fx-text-fill: #2A1040;
+}
+
+.combo-box-popup .list-cell:hover {
+    -fx-background-color: #F0E4F8;
+}
+
+.date-picker .text-field {
+    -fx-background-color: #FDFAFF;
+    -fx-text-fill: #2A1040;
+}
+
+/* ── Rose Gold Button ── */
+.gold-btn {
+    -fx-background-color: #C0788C;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-family: "Segoe UI";
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+    -fx-padding: 10 24;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+    -fx-border-width: 0;
+}
+
+.gold-btn:hover {
+    -fx-background-color: #A86070;
+}
+
+/* ── Ghost Button ── */
+.ghost-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: #7B3F8C;
+    -fx-border-color: #D4B8E0;
+    -fx-border-radius: 8;
+    -fx-font-family: "Segoe UI";
+    -fx-font-size: 13px;
+    -fx-padding: 10 24;
+    -fx-cursor: hand;
+    -fx-background-radius: 8;
+}
+
+.ghost-btn:hover {
+    -fx-background-color: #F0E4F8;
+    -fx-border-color: #C07090;
+}
+
+.msg-label {
+    -fx-font-family: "Segoe UI";
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-wrap-text: true;
+}
+
+/* ── Tab Pane ── */
+.tab-pane .tab {
+    -fx-background-color: #EDE5F5;
+    -fx-text-fill: #9070A8;
+    -fx-font-family: "Segoe UI";
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 0;
+    -fx-padding: 11 4;
+    -fx-min-width: 120;
+}
+
+.tab-pane .tab:selected {
+    -fx-background-color: #F5F0F8;
+    -fx-text-fill: #C0788C;
+    -fx-border-color: #C0788C;
+    -fx-border-width: 0 0 2.5 0;
+}
+
+.tab-pane .tab:hover {
+    -fx-background-color: #E8DCF4;
+    -fx-text-fill: #7B3F8C;
+}
+
+.tab-pane .tab-header-area {
+    -fx-background-color: #EDE5F5;
+    -fx-padding: 0;
+}
+
+.tab-pane .tab-header-background {
+    -fx-background-color: #EDE5F5;
+}
+
+/* ── Table View ── */
+.table-view {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #E0D0EC;
+    -fx-control-inner-background: #FFFFFF;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #F0E8F8;
+}
+
+.table-view .column-header {
+    -fx-background-color: #F0E8F8;
+    -fx-text-fill: #7B3F8C;
+    -fx-font-family: "Segoe UI";
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+    -fx-border-color: #E0D0EC;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #7B3F8C;
+    -fx-font-weight: bold;
+}
+
+.table-view .table-row-cell {
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: #2A1040;
+    -fx-border-color: #F0E8F8;
+    -fx-border-width: 0 0 1 0;
+}
+
+.table-view .table-row-cell:selected {
+    -fx-background-color: #F5E8F0;
+}
+
+.table-view .table-row-cell:odd {
+    -fx-background-color: #FAF6FF;
+}
+
+.table-view .table-row-cell:hover {
+    -fx-background-color: #F0E4F8;
+}
+
+.table-view .table-cell {
+    -fx-text-fill: #2A1040;
+    -fx-font-family: "Segoe UI";
+    -fx-alignment: CENTER-LEFT;
+    -fx-padding: 7 10;
+}
+
+/* ── Scroll Bar ── */
+.scroll-bar {
+    -fx-background-color: #F0EAF8;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: #C4A8D8;
+    -fx-background-radius: 4;
+}
+
+.scroll-bar .thumb:hover {
+    -fx-background-color: #C0788C;
+}
+
+.scroll-bar .track {
+    -fx-background-color: #F0EAF8;
+}
+
+/* ── Split Pane ── */
+.split-pane {
+    -fx-background-color: #F5F0F8;
+    -fx-padding: 12;
+}
+
+.split-pane>.split-pane-divider {
+    -fx-background-color: #E0D0EC;
+    -fx-padding: 0 1;
+}
+
+/* ── List View ── */
+.list-view {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #E0D0EC;
+    -fx-border-radius: 8;
+}
+
+.list-cell {
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: #2A1040;
+    -fx-font-family: "Segoe UI";
+}
+
+.list-cell:odd {
+    -fx-background-color: #FAF6FF;
+}
+
+.list-cell:selected {
+    -fx-background-color: #F5E8F0;
+}
+
+.list-cell:hover {
+    -fx-background-color: #F0E4F8;
+}
+
+/* ── Scroll Pane ── */
+.scroll-pane {
+    -fx-background-color: #F5F0F8;
+    -fx-background: #F5F0F8;
+}
+
+.scroll-pane>.viewport {
+    -fx-background-color: #F5F0F8;
+}
