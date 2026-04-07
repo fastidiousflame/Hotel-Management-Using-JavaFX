@@ -207,7 +207,8 @@ public class MainApp extends Application {
 
     public void refreshDashboard() { if (dashCtrl != null) dashCtrl.refresh(); }
 
-    public RoomsController getRoomsController() { return roomsCtrl; }
+    public RoomsController getRoomsController()     { return roomsCtrl;   }
+    public BookingFxController getBookingController() { return bookingCtrl; }
     public void selectTab(int index) { tabPane.getSelectionModel().select(index); }
 
     public void log(String msg) {

@@ -22,14 +22,16 @@ public class CheckoutController {
     @FXML private TableColumn<Booking, String> colActCheckOut;
     @FXML private TableColumn<Booking, String> colActBill;
 
-    private BookingController bookCtrl;
-    private RoomsController   roomsCtrl;   // ← so we can refresh rooms table
-    private MainApp           mainApp;
+    private BookingController   bookCtrl;
+    private RoomsController     roomsCtrl;    // to refresh rooms table
+    private BookingFxController bookingCtrl;  // to refresh room combo
+    private MainApp             mainApp;
 
     public void setContext(RoomController rc, BookingController bc, MainApp app) {
-        this.bookCtrl  = bc;
-        this.mainApp   = app;
-        this.roomsCtrl = app.getRoomsController(); // ← get rooms controller reference
+        this.bookCtrl    = bc;
+        this.mainApp     = app;
+        this.roomsCtrl   = app.getRoomsController();
+        this.bookingCtrl = app.getBookingController();
 
         colActBkId.setCellValueFactory(d -> d.getValue().bookingIdProperty());
         colActGuest.setCellValueFactory(d -> new SimpleStringProperty(d.getValue().getCustomerName()));
@@ -62,8 +64,11 @@ public class CheckoutController {
             mainApp.refreshDashboard();
             activeTable.refresh();
 
-            // ── Refresh the Rooms table so status updates immediately ──
-            if (roomsCtrl != null) roomsCtrl.refreshTable();
+            // ── Refresh rooms table status ──
+            if (roomsCtrl != null)   roomsCtrl.refreshTable();
+
+            // ── FIX: Refresh booking combo so freed room reappears ──
+            if (bookingCtrl != null) bookingCtrl.refreshRoomCombo();
 
             if (target != null) showReceipt(target);
         } else {

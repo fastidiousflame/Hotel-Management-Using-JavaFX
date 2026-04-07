@@ -1,4 +1,4 @@
-java --module-path javafx-sdk-21.0.10\lib --add-modules javafx.controls,javafx.fxml -cp out ui.MainApp\
+java --module-path javafx-sdk-21.0.10\lib --add-modules javafx.controls,javafx.fxml -cp out ui.MainApp
 
 
 javac --module-path javafx-sdk-21.0.10\lib --add-modules javafx.controls,javafx.fxml -cp src\main\java -d out src\main\java\model\*.java src\main\java\controller\*.java src\main\java\ui\*.java
