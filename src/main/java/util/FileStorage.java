@@ -1,9 +1,17 @@
 package util;
 
-import javafx.collections.*;
-import model.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.time.LocalDate;
 
-import java.io.*;
+import controller.RoomController;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import model.Booking;
+import model.Customer;
+import model.Room;
 
 public class FileStorage {
 
@@ -58,5 +66,35 @@ public class FileStorage {
                 );
             }
         } catch (Exception e) { e.printStackTrace(); }
+    }
+
+    public static ObservableList<Booking> loadBookings(RoomController roomCtrl) {
+        ObservableList<Booking> list = FXCollections.observableArrayList();
+
+        try (BufferedReader br = new BufferedReader(new FileReader("bookings.csv"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] p = line.split(",");
+
+                String bookingId = p[0];
+                String customerName = p[1];
+                int roomNo = Integer.parseInt(p[2]);
+                LocalDate checkIn = LocalDate.parse(p[3]);
+                LocalDate checkOut = LocalDate.parse(p[4]);
+                String status = p[5];
+
+                Room room = roomCtrl.findRoom(roomNo).orElse(null);
+                if (room == null) continue;
+
+                Customer customer = new Customer(customerName, "", "", "");
+                Booking b = new Booking(customer, room, checkIn, checkOut);
+
+                b.setStatus(status);
+
+                list.add(b);
+            }
+        } catch (Exception ignored) {}
+
+        return list;
     }
 }

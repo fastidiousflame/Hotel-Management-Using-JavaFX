@@ -1,10 +1,11 @@
 package controller;
 
-import javafx.collections.*;
+import java.util.Optional;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import model.Room;
 import util.FileStorage;
-
-import java.util.Optional;
 
 public class RoomController {
 
@@ -15,7 +16,7 @@ public class RoomController {
 
         if (loaded.isEmpty()) {
             seedDefaultRooms();
-            FileStorage.saveRooms(rooms); // save initial data
+            FileStorage.saveRooms(rooms);
         } else {
             rooms.addAll(loaded);
         }
@@ -41,8 +42,7 @@ public class RoomController {
         if (exists) return false;
 
         rooms.add(new Room(roomNumber, type, price, floor, capacity));
-
-        FileStorage.saveRooms(rooms); // SAVE
+        FileStorage.saveRooms(rooms);
 
         return true;
     }
