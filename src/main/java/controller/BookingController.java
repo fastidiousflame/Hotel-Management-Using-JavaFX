@@ -19,8 +19,23 @@ public class BookingController {
     public BookingController(RoomController roomController) {
         this.roomController = roomController;
 
-        // LOAD EXISTING BOOKINGS
+        // ✅ Load bookings from file
         bookings.addAll(FileStorage.loadBookings(roomController));
+
+        // ✅ Rebuild customers list from bookings
+        rebuildCustomersFromBookings();
+    }
+
+    // 🔥 FIX: rebuild customers from bookings
+    private void rebuildCustomersFromBookings() {
+        customers.clear();
+
+        for (Booking b : bookings) {
+            Customer c = b.getCustomer();
+            if (c != null) {
+                customers.add(c);
+            }
+        }
     }
 
     public Booking createBooking(String customerName, String contact, String email,
@@ -41,6 +56,7 @@ public class BookingController {
         customers.add(customer);
         bookings.add(booking);
 
+        // ✅ Save data
         FileStorage.saveRooms(roomController.getAllRooms());
         FileStorage.saveBookings(bookings);
 
@@ -58,6 +74,7 @@ public class BookingController {
         booking.setStatus("CHECKED_OUT");
         booking.getRoom().setAvailable(true);
 
+        // ✅ Save updates
         FileStorage.saveRooms(roomController.getAllRooms());
         FileStorage.saveBookings(bookings);
 
