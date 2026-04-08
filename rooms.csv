@@ -1,0 +1,11 @@
+101,SINGLE,1500.0,1st Floor,1,true
+102,SINGLE,1500.0,1st Floor,1,true
+103,DOUBLE,2500.0,1st Floor,2,true
+201,DOUBLE,2500.0,2nd Floor,2,true
+202,DELUXE,4000.0,2nd Floor,3,true
+203,DELUXE,4000.0,2nd Floor,3,true
+301,SUITE,8000.0,3rd Floor,4,true
+302,SUITE,8500.0,3rd Floor,4,true
+303,DELUXE,4200.0,3rd Floor,3,true
+401,SUITE,12000.0,Penthouse,6,true
+405,DELUXE,2399.0,4th Floor,3,true

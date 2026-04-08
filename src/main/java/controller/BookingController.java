@@ -8,11 +8,8 @@ import javafx.collections.ObservableList;
 import model.Booking;
 import model.Customer;
 import model.Room;
+import util.FileStorage;
 
-/**
- * BookingController.java — Manages all booking & checkout operations.
- * Keeps both a booking list and a customer list in memory.
- */
 public class BookingController {
 
     private final ObservableList<Booking> bookings = FXCollections.observableArrayList();
@@ -21,10 +18,8 @@ public class BookingController {
 
     public BookingController(RoomController roomController) {
         this.roomController = roomController;
-        seedSampleBooking(); // one sample so app looks populated on launch
     }
 
-    /** Creates and stores a new booking. Returns the booking or null if room unavailable. */
     public Booking createBooking(String customerName, String contact, String email,
                                  String idProof, int roomNumber,
                                  LocalDate checkIn, LocalDate checkOut) {
@@ -33,18 +28,22 @@ public class BookingController {
         if (roomOpt.isEmpty()) return null;
 
         Room room = roomOpt.get();
-        if (!room.isAvailable()) return null; // Already booked!
+        if (!room.isAvailable()) return null;
 
         Customer customer = new Customer(customerName, contact, email, idProof);
         Booking booking = new Booking(customer, room, checkIn, checkOut);
 
-        room.setAvailable(false); // Mark room as occupied
+        room.setAvailable(false);
+
         customers.add(customer);
         bookings.add(booking);
+
+        FileStorage.saveRooms(roomController.getAllRooms()); // SAVE ROOMS
+        FileStorage.saveBookings(bookings); // SAVE BOOKINGS
+
         return booking;
     }
 
-    /** Checkout: releases the room and marks booking as CHECKED_OUT */
     public boolean checkout(String bookingId) {
         Optional<Booking> opt = bookings.stream()
                 .filter(b -> b.getBookingId().equals(bookingId) && b.getStatus().equals("ACTIVE"))
@@ -54,13 +53,12 @@ public class BookingController {
 
         Booking booking = opt.get();
         booking.setStatus("CHECKED_OUT");
-        booking.getRoom().setAvailable(true); // Free the room
-        return true;
-    }
+        booking.getRoom().setAvailable(true);
 
-    /** No sample bookings — start clean */
-    private void seedSampleBooking() {
-        // intentionally empty
+        FileStorage.saveRooms(roomController.getAllRooms()); // SAVE ROOMS
+        FileStorage.saveBookings(bookings); // SAVE BOOKINGS
+
+        return true;
     }
 
     public ObservableList<Booking> getAllBookings()  { return bookings; }
